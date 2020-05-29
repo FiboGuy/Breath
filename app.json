@@ -1,0 +1,17 @@
+{
+  "name": "breath-v5",
+  "displayName": "breath-v5",
+  "expo": {
+    "name": "breath-v5",
+    "slug": "expo-template-bare",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
