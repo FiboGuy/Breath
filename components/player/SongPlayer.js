@@ -76,7 +76,6 @@ class SongPlayer extends Component {
 
     checkTimer()
     {
-        console.log(this.props.timer)
         if(typeof this.props.timer === 'number' && !this.props.on){
             this.props.setTimer(this.props.timer - 0.5)
             if(this.props.timer <= 0){
@@ -96,7 +95,7 @@ class SongPlayer extends Component {
     
     animate(){
         Animated.timing(this.top,{
-            toValue: this.height == '896' ? 669 : 435,
+            toValue: this.height == '812' ? 561 : 435,
             duration: 500
         }).start()
     }

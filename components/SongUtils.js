@@ -3,7 +3,7 @@ export const songs = [
         id: 'Celestial Figments',
         title: 'Celestial Figments',
         artist: 'Sleep Songs',
-        url: require('./../songs/CelestialFigments.mp3'),
+        url: require('./../songs/CelestialFigments.mp4'),
         artwork: require('./../images/Stone.png')
     },
     {
