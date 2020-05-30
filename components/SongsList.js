@@ -28,10 +28,18 @@ class SongsList extends Component {
     setUpTrack = async () => {
         // TrackPlayer.registerPlaybackService(() => require('./trackService.js'));
         TrackPlayer.addEventListener('remote-play', async () => {
-           await TrackPlayer.play()
+            this.state({playing: true})
         });
         TrackPlayer.addEventListener('remote-pause', async () => {
-            await TrackPlayer.pause()
+            this.state({playing: false})
+        });
+
+        TrackPlayer.addEventListener('remote-next', async () => {
+           this.nextSong()
+        });
+
+        TrackPlayer.addEventListener('remote-previous', async () => {
+            this.previousSong()
         });
          
         await TrackPlayer.setupPlayer()
