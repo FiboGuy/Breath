@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native'
 import { songs as songList, getNextSong, getPreviousSong } from './SongUtils'
 import { connect } from 'react-redux'
 import SongPlayer from './player/SongPlayer'
@@ -125,8 +125,11 @@ class SongsList extends Component {
                         return (
                             <View key={index} style={styles.flex}>
                                 <View style={styles.songView}>
-                                    <Text style={styles.song}>{e.title}</Text>
-                                    <Text style={styles.artist}>{e.artist}</Text>
+                                    <Image source={e.artwork} style={styles.image}/>
+                                    <View>
+                                        <Text style={styles.song}>{e.title}</Text>
+                                        <Text style={styles.artist}>{e.artist}</Text>
+                                    </View>
                                 </View>
                                 <TouchableOpacity onPress={() => this.goToSongProfile(e)}>
                                     <Icon name={this.selector(e.id)} size={24} color='grey'/>
@@ -152,7 +155,9 @@ const styles = StyleSheet.create({
         marginTop: 36
     },
     songView: {
-        marginBottom: 15.5
+        marginBottom: 15.5,
+        display:'flex',
+        flexDirection:'row'
     },
     song: {
         fontWeight: '500',
@@ -168,6 +173,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginRight: 24
+    },
+    image:{
+        width:45,
+        height:45,
+        marginRight:20
     }
 })
 

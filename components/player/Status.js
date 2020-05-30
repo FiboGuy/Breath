@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         width,
         top: 0,
         zIndex:1,
-        height:4
+        height:6
     }),
     fill: (width) => (
         {

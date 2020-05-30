@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Animated, StyleSheet, Text, Dimensions } from 'react-native'
+import { View, Animated, StyleSheet, Text, Dimensions, Image } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Status from './Status'
 import { Actions } from 'react-native-router-flux' 
@@ -96,7 +96,7 @@ class SongPlayer extends Component {
     
     animate(){
         Animated.timing(this.top,{
-            toValue: this.height == '896' ? 669 : 449,
+            toValue: this.height == '896' ? 669 : 435,
             duration: 500
         }).start()
     }
@@ -113,15 +113,18 @@ class SongPlayer extends Component {
 
 
     render(){
-        const {title, artist} = this.props.track
+        const {title, artist, artwork} = this.props.track
         return (
             <React.Fragment>
                 <Animated.View style={[styles.absolute(this.height, this.width), {top: this.top}]}>
                 <Status fill={this.state.status} width={this.width} setStatus = {(percentage) => this.setStatus(percentage)}/>
-                    <View style={styles.first}>   
+                <View style={styles.first}>
+                    <Image source={artwork} style={styles.image}/>
+                    <View >   
                         <Text style={styles.song}>{title}</Text>
                         <Text style={styles.artist}>{artist}</Text>
                     </View>
+                </View>
                     <View style={styles.row}>
                         <Icon onPress={() => Actions.Timer()} style={{marginRight:30}} name="clock-o" size={24} color='#0071BC'/>
                         <Icon onPress={() => this.props.previousSong()}  name='step-backward' style={{marginRight:25}} size={24} color='#0071BC' />
@@ -137,7 +140,7 @@ const styles = StyleSheet.create({
     absolute: (height, width) => ({
         position: 'absolute',
         width,
-        height: height == 812 ? 95 : 70,
+        height: height == 812 ? 95 : 75,
         backgroundColor: '#ABE7F1',
         left: -24,
         flexDirection: 'row',
@@ -149,7 +152,9 @@ const styles = StyleSheet.create({
         marginRight: 24
     },
     first:{
-        marginLeft: 30
+        marginLeft: 24,
+        display:'flex',
+        flexDirection:'row'
     },
     song: {
         fontWeight: '500',
@@ -162,6 +167,11 @@ const styles = StyleSheet.create({
         fontSize: 14,
         lineHeight: 17
     },
+    image:{
+        width:45,
+        height:45,
+        marginRight:20
+    }
 })
 
 const mapStateToProps = state => {

@@ -3,13 +3,15 @@ export const songs = [
         id: 'Pausa',
         title: 'Pausa',
         artist: 'Izal',
-        url: require('./../songs/Izal-Pausa.mp3')
+        url: require('./../songs/Izal-Pausa.mp3'),
+        artwork: require('./../images/Mediation.png')
     },
     {
         id: 'Nuvole Bianche',
         title: 'Nuvole Bianche',
         artist: 'Ludovico Einaudi',
-        url: require('./../songs/LudovicoEinaudi-NuvoleBianche.mp3')
+        url: require('./../songs/LudovicoEinaudi-NuvoleBianche.mp3'),
+        artwork: require('./../images/Mediation.png')
     }
 ]
 
