@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { View, Animated, StyleSheet, Text, Dimensions } from 'react-native'
 
 
-
 class Notifiy extends Component{
     constructor(props){
         super(props)

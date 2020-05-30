@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, Image, ScrollView } from 'react-native'
 import { songs as songList, getNextSong, getPreviousSong } from './SongUtils'
 import { connect } from 'react-redux'
 import SongPlayer from './player/SongPlayer'
@@ -121,22 +121,24 @@ class SongsList extends Component {
             <React.Fragment>
                 {this.state.timeOut && <Notify text='Time to sleep baby!' intervalEnded={() => this.setState({timeOut: false})}/>}
                 <View style={styles.view}>
-                    {songs.map((e, index) => {
-                        return (
-                            <View key={index} style={styles.flex}>
-                                <View style={styles.songView}>
-                                    <Image source={e.artwork} style={styles.image}/>
-                                    <View>
-                                        <Text style={styles.song}>{e.title}</Text>
-                                        <Text style={styles.artist}>{e.artist}</Text>
+                    <ScrollView>
+                        {songs.map((e, index) => {
+                            return (
+                                <View key={index} style={styles.flex}>
+                                    <View style={styles.songView}>
+                                        <Image source={e.artwork} style={styles.image}/>
+                                        <View>
+                                            <Text style={styles.song}>{e.title}</Text>
+                                            <Text style={styles.artist}>{e.artist}</Text>
+                                        </View>
                                     </View>
+                                    <TouchableOpacity onPress={() => this.goToSongProfile(e)}>
+                                        <Icon name={this.selector(e.id)} size={24} color='grey'/>
+                                    </TouchableOpacity>
                                 </View>
-                                <TouchableOpacity onPress={() => this.goToSongProfile(e)}>
-                                    <Icon name={this.selector(e.id)} size={24} color='grey'/>
-                                </TouchableOpacity>
-                            </View>
-                        )
-                    })}    
+                            )
+                        })}    
+                    </ScrollView>
                     {track.id ? <SongPlayer trackPlayer={TrackPlayer}
                                             track={track}
                                             playing={playing}  
