@@ -14,7 +14,7 @@ class Timer extends Component{
     componentDidMount()
     {
         this.props.setTimerOn(true)
-        this.props.setTimer(300)
+        this.props.setTimer(600)
     }
 
     pickerItems(){

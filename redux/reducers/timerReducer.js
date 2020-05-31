@@ -1,7 +1,7 @@
 import { TIMER, TIMERON } from '../actions/constants'
 
 const initialState = {
-    value: 300,
+    value: 600,
     on: false
 }
 

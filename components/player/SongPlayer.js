@@ -95,7 +95,7 @@ class SongPlayer extends Component {
     
     animate(){
         Animated.timing(this.top,{
-            toValue: this.height == '812' ? 561 : 435,
+            toValue: this.height == '812' ? 561 : 505,
             duration: 500
         }).start()
     }

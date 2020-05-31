@@ -2,9 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:breathv5.xcodeproj">
+      location = "group:/Users/ctm/Documents/react-native/breath-v5/ios/breath.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:breathv5.xcodeproj">
    </FileRef>
 </Workspace>

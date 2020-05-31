@@ -24,7 +24,7 @@ class SearchBar extends Component {
 const styles = StyleSheet.create({
     searchbar: {
         borderWidth: 1,
-        width: 327,
+        width: 365,
         height: 40,
         paddingLeft: 5,
         borderColor: '#B3B3B3'
